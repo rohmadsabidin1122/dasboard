@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    <template id="sale_quotation_notify" name="sale.quotation.notify">
+        <div class="row" style="display:webkit-box;display:webkit-flex;display:flex;webkit-flex-wrap:wrap;flex-wrap:wrap;margin-right: 5px;margin-left: 5px;margin-bottom: 10px;margin-top: 10px;">
+            <t t-set="obj" t-value="request.env['sale.order']"/>
+           
+                <div class ="col-8">
+                    <div class="row">
+                        <div class ='col'>
+                            <a href="/sales/sale_quotation_onboarding_panel/filter?states=quotation">
+                                <div class="card text-white bg-warning">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="stat-text">
+                                                    <span class="fa fa-cog"/>
+                                                      Quatation</div>
+                                                <div class='stat-digit'>
+                                                    <t t-esc="obj.search_count([('state','=','draft')])"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class ='col-3'>
+                            <a href="/sales/sale_quotation_onboarding_panel/filter?states=sent">
+                                <div class="card text-white bg-info">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="stat-text">
+                                                    <span class="fa fa-thumbs-up"/>
+                                                    Quatation Sent</div>
+                                                <div class='stat-digit '>
+                                                    <t  class="text-center" t-esc="obj.search_count([('state','=','sent')])"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>  
+                        </div>
+                        <div class ='col'>
+                            <a href="/sales/sale_quotation_onboarding_panel/filter?states=sale">
+                                <div class="card text-white bg-success">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="stat-text">
+                                                    <span class="fa fa-shopping-cart"/>
+                                                    Sale Order</div>
+                                                <div class='stat-digit'>
+                                                    <t t-esc="obj.search_count([('state','=','sale')])"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a> 
+                        </div>
+                        <div class ='col'>
+                            <a href="/sales/sale_quotation_onboarding_panel/filter?states=cancel">
+                                <div class="card text-white bg-danger">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="stat-text">
+                                                    <span class="fa fa-users"/>
+                                                    Cancel</div>
+                                                <div class='stat-digit'>
+                                                    <t t-esc="obj.search_count([('state','=','cancel')])"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+          
+        </div>      
+    </template>
+</odoo>

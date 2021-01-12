@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+
+    <template id="sale_quotation_notify" name="sale.quotation.notify">
+        <div class="row" style="display:webkit-box;display:webkit-flex;display:flex;webkit-flex-wrap:wrap;flex-wrap:wrap;margin-right: 5px;margin-left: 5px;margin-bottom: 10px;margin-top: 10px;">
+            <t t-set="obj" t-value="request.env['sale.order']"/>
+            <t t-set="crm" t-value="request.env['crm.team']"/>
+            <t t-set="rpl" t-value="request.env['res.partner']"/>
+                <div class ="col-12">
+                    <div class="row">
+                        <div class ='col'>
+                            <a href="/sales/quotation/filter?states=quotation">
+                                <div class="card text-white bg-warning">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="row" style="height: 125px">
+                                                    <div class="col">
+                                                        <img src="/custom_sale_dashboard/static/img/quotation.png" style="width: 100px; height: 100px"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='row' style="font-size: 16px">
+                                                            <div class="col">
+                                                                <p style="font-size: 12px">Sales Quotation</p>
+                                                                <t t-esc="obj.search_count([('state','=','draft')])"/>
+
+                                                                <t t-set="total" t-value="0"/>
+                                                                <p t-foreach="obj.search([('state','=','draft')])" t-as="i">
+                                                                    <t t-set="total" t-value="total+i.amount_total" />
+                                                                </p>
+                                                                <p style="font-size: 12px">Total Amount</p>
+                                                                <t t-esc="total"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class ='col'>
+                            <a href="/sales/teams/filter?states=favorites">
+                                <div class="card text-white bg-info">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="row" style="height: 125px">
+                                                    <div class="col">
+                                                        <img src="/custom_sale_dashboard/static/img/team.png" style="width: 100px; height: 100px"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='row' style="font-size: 16px">
+                                                            <div class="col">
+                                                                <p style="font-size: 12px">Sales Teams</p>
+                                                                <t  class="text-center" t-esc="crm.search_count([('favorite_user_ids', 'in', uid)])"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>  
+                        </div>
+
+                        <div class ='col'>
+                            <a href="/sales/order/filter?states=sales">
+                                <div class="card text-white bg-success">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="row" style="height: 125px">
+                                                    <div class="col">
+                                                        <img src="/custom_sale_dashboard/static/img/orders.png" style="width: 100px; height: 100px"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='row' style="font-size: 16px">
+                                                            <div class="col">
+                                                                <p style="font-size: 12px">Sales Order</p>
+                                                                <t t-esc="obj.search_count([])"/>
+
+                                                                <t t-set="total" t-value="0"/>
+                                                                <p t-foreach="obj.search([])" t-as="i">
+                                                                    <t t-set="total" t-value="total+i.amount_total" />
+                                                                </p>
+                                                                <p style="font-size: 12px">Total Amount</p>
+                                                                <t t-esc="total"/>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a> 
+                        </div>
+
+                        <div class ='col'>
+                            <a href="/sales/customers/filter?states=customer">
+                                <div class="card text-white bg-danger">
+                                    <div class="card-body">
+                                        <div class="stat-widget-one">
+                                            <div class="stat-content dib">
+                                                <div class="row" style="height: 125px">
+                                                    <div class="col">
+                                                        <img src="/custom_sale_dashboard/static/img/customer.png" style="width: 100px; height: 100px"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='row' style="font-size: 16px">
+                                                            <div class="col">
+                                                                <p style="font-size: 12px">Sales Customer</p>
+                                                                <t t-esc="rpl.search_count([('customer', '=', True),('parent_id', '=', False)])"/>
+
+                                                                <t t-set="total" t-value="0"/>
+                                                                <p t-foreach="rpl.search([('customer', '=', True),('parent_id', '=', False)])" t-as="r">
+                                                                    <t t-set="total" t-value="total+r.purchase_order_count" />
+                                                                </p>
+                                                                <p style="font-size: 12px">Total Purchase</p>
+                                                                <t t-esc="total"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>      
+    </template>
+</odoo>

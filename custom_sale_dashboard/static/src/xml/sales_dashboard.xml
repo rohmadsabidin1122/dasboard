@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+  <!-- <t t-extend="ListView.buttons">
+    <t t-jquery="div.o_list_buttons" t-operation="append">
+     <t t-if="widget.modelName=='sale.order'">
+            <div class="card-deck">
+            <div class="card">
+                 <div class="btn btn-primary">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-content dib">
+                                <div class="stat-text">Quotation</div>
+                                 <div class="stat-digit">
+                                <t t-esc="widget.login_partner['partner_quotation']"/></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div> 
+            <div class="card">
+                 <div class="btn btn-primary">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-content dib">
+                                <div class="stat-text">Quotation Sent</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+             </div>
+           <div class="card">
+                 <div class="btn btn-primary">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-content dib">
+                                <div class="stat-text">Sale Order</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>   
+           <div class="card">
+                 <div class="btn btn-primary">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-content dib">
+                                <div class="stat-text">Cancel</div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+             </div> 
+          </div>      
+      </t>
+    </t>
+  </t> -->
+</template>
+
+
+
